@@ -27,6 +27,6 @@ after_success:
 
 deploy:
   provider: heroku
+  app: react-test-pet-project
   api_key:
     secure: $HEROKU_KEY
-  app: mine_app
