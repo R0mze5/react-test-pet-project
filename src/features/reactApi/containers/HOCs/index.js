@@ -1,0 +1,1 @@
+export { HOCs } from './HOCs';

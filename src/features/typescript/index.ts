@@ -1,0 +1,1 @@
+export { TypescriptClass } from './typescript';

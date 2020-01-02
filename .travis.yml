@@ -1,0 +1,32 @@
+language: node_js
+
+node_js:
+  - 9
+
+cache:
+  directories:
+    - ~/.npm
+    - ~/.cache
+
+install:
+  - yarn install
+
+# before_script:
+#   - yarn start -- --silent &
+
+script:
+  - yarn build
+  # - yarn run cypress:run
+  - rm build/static/js/*.js.map
+  - yarn test
+
+after_success:
+  - echo '/* index.html 200' > build/_redirects
+  # - chmod +x ./deploy.sh
+  # - ./deploy.sh
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU_KEY
+  app: mine_app
