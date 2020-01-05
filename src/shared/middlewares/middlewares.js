@@ -3,7 +3,7 @@ import * as middlewaresActions from './actions';
 
 export const tvmazeFetchMiddleware = store => next => action => {
   if (action.type === GET_SERIES_REQUEST) {
-    fetch('http://api.tvmaze.com/shows/180/episodes', {
+    fetch('https://api.tvmaze.com/shows/180/episodes', {
       method: 'GET',
     })
       .then(response => response.json())

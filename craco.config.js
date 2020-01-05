@@ -11,6 +11,7 @@ module.exports = {
       '@router': path.resolve(__dirname, 'src/router'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@theme': path.resolve(__dirname, 'src/theme'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
     },
   },
   jest: {
@@ -22,6 +23,7 @@ module.exports = {
         '^@router(.*)$': '<rootDir>/src/router$1',
         '^@store(.*)$': '<rootDir>/src/store$1',
         '^@theme(.*)$': '<rootDir>/src/theme$1',
+        '^@utils(.*)$': '<rootDir>/src/utils$1',
       },
     },
   },

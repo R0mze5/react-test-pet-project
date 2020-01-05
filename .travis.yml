@@ -30,3 +30,5 @@ deploy:
   app: react-test-pet-project
   api_key:
     secure: $HEROKU_KEY
+  on:
+    all_branches: true

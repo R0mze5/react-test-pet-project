@@ -9,7 +9,7 @@ export const forThunk = () => async (dispatch, getState) => {
   try {
     // const loadingStatus = getIsLoading(getState());
     // console.log(loadingStatus);
-    const response = await fetch('http://api.tvmaze.com/shows/180/episodes', {
+    const response = await fetch('https://api.tvmaze.com/shows/180/episodes', {
       method: 'GET',
     });
 

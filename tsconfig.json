@@ -22,6 +22,7 @@
     "@ui/*": ["ui/*"],
     "@router/*": ["router/*"],
     "@store/*": ["store/*"],
-    "@theme/*": ["theme/*"]
+    "@theme/*": ["theme/*"],
+    "@utils/*": ["utils/*"]
   }
 }

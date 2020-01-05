@@ -6,12 +6,16 @@ export class ForwardedRef extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      this.greeting.current.toUpperCase();
+      // console.log(this.greeting.current);
+
+      if (this.greeting.current) {
+        this.greeting.current.toUpperCase();
+      }
     }, 3000);
   }
 
   render() {
-    console.log(this.greeting);
+    // console.log(this.greeting);
     return <PureGreeting ref={this.greeting} name={'someName'} />;
   }
 }

@@ -9,3 +9,5 @@ export { ContextAPI } from './ContextAPI';
 export { PersistEvent } from './PersistEvent';
 
 export { ForwardedRef } from './ForwardedRef';
+export { Hooks } from './Hooks/index';
+export { HooksReducer } from './HooksReducer';

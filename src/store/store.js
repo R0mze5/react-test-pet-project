@@ -8,17 +8,21 @@ import { rootReducer } from './rootReducer';
 import { rootSaga } from './rootSaga';
 
 export const storeCreator = () => {
+  const composeDevTools =
+    (process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+    compose;
+
   const sagaMiddleware = createSagaMiddleware();
 
   const middlewares = [tvmazeFetchMiddleware, thunk /* , execTrace */, sagaMiddleware];
   const store = createStore(
     rootReducer,
     // {}, // второй аргумент - payloaded state для регидрации
-    compose(
+    composeDevTools(
       applyMiddleware(...middlewares),
-      process.env.NODE_ENV === 'development' &&
+      /* process.env.NODE_ENV === 'development' &&
         window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__(),
+        window.__REDUX_DEVTOOLS_EXTENSION__(), */
     ),
   );
 
