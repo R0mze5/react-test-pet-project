@@ -16,6 +16,7 @@ import {
   ForwardedRef,
   Hooks,
   HooksReducer,
+  HooksUseRef,
 } from '@features/reactApi';
 
 import { PrivateRoute, NestedRouter } from '@features/routerApi';
@@ -36,69 +37,93 @@ export const Router = () => {
       <Grid item xs={3}>
         <Paper>
           <MenuList>
-            <MenuItem>
-              <Link to={'/'}>Home</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/lifecycle'}>Lifecycle</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/renderprops'}>RenderProps</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/hocs'}>HOCs</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/contextapi'}>ContextAPI</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/persistevent'}>PersistEvent</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/nestedrouter'}>NestedRouter</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/privaterouter'}>PrivateRoute</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/forwardedref'}>ForwardedRef</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/Hooks'}>Hooks</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/HooksReducer'}>HooksReducer</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/basicredux'}>BasicRedux</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/middlewares'}>Middlewares</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/reduxsaga'}>ReduxSaga</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/reduxthunk'}>ReduxThunk</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/test'}>TestingPage</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/forms/redux-form/'}>ReduxForm</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/forms/formik/'}>Formik</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/forms/ReactFinalForm/'}>ReactFinalForm</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/forms/FormikYup/'}>FormikYup</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={'/customizing/Styling/'}>Styling</Link>
-            </MenuItem>
+            <Link to={'/'}>
+              <MenuItem> Home</MenuItem>
+            </Link>
+
+            <Link to={'/lifecycle'}>
+              <MenuItem> Lifecycle</MenuItem>
+            </Link>
+
+            <Link to={'/renderprops'}>
+              <MenuItem> RenderProps</MenuItem>
+            </Link>
+
+            <Link to={'/hocs'}>
+              <MenuItem> HOCs</MenuItem>
+            </Link>
+
+            <Link to={'/contextapi'}>
+              <MenuItem> ContextAPI</MenuItem>
+            </Link>
+
+            <Link to={'/persistevent'}>
+              <MenuItem> PersistEvent</MenuItem>
+            </Link>
+
+            <Link to={'/nestedrouter'}>
+              <MenuItem> NestedRouter</MenuItem>
+            </Link>
+
+            <Link to={'/privaterouter'}>
+              <MenuItem> PrivateRoute</MenuItem>
+            </Link>
+
+            <Link to={'/forwardedref'}>
+              <MenuItem> ForwardedRef</MenuItem>
+            </Link>
+
+            <Link to={'/Hooks'}>
+              <MenuItem> Hooks</MenuItem>
+            </Link>
+
+            <Link to={'/HooksUseRef'}>
+              <MenuItem> HooksUseRef</MenuItem>
+            </Link>
+
+            <Link to={'/HooksReducer'}>
+              <MenuItem> HooksReducer</MenuItem>
+            </Link>
+
+            <Link to={'/basicredux'}>
+              <MenuItem> BasicRedux</MenuItem>
+            </Link>
+
+            <Link to={'/middlewares'}>
+              <MenuItem> Middlewares</MenuItem>
+            </Link>
+
+            <Link to={'/reduxsaga'}>
+              <MenuItem> ReduxSaga</MenuItem>
+            </Link>
+
+            <Link to={'/reduxthunk'}>
+              <MenuItem> ReduxThunk</MenuItem>
+            </Link>
+
+            <Link to={'/test'}>
+              <MenuItem> TestingPage</MenuItem>
+            </Link>
+
+            <Link to={'/forms/redux-form/'}>
+              <MenuItem> ReduxForm</MenuItem>
+            </Link>
+
+            <Link to={'/forms/formik/'}>
+              <MenuItem> Formik</MenuItem>
+            </Link>
+
+            <Link to={'/forms/ReactFinalForm/'}>
+              <MenuItem> ReactFinalForm</MenuItem>
+            </Link>
+
+            <Link to={'/forms/FormikYup/'}>
+              <MenuItem> FormikYup</MenuItem>
+            </Link>
+
+            <Link to={'/customizing/Styling/'}>
+              <MenuItem> Styling</MenuItem>
+            </Link>
           </MenuList>
         </Paper>
       </Grid>
@@ -124,6 +149,7 @@ export const Router = () => {
             <Route component={PrivateRoute} path={'/privaterouter'} />
             <Route component={ForwardedRef} path={'/forwardedref'} />
             <Route component={Hooks} path={'/Hooks'} />
+            <Route component={HooksUseRef} path={'/HooksUseRef'} />
             <Route component={HooksReducer} path={'/HooksReducer'} />
             <Route component={BasicRedux} path={'/basicredux'} />
             <Route component={Middlewares} path={'/middlewares'} />

@@ -4,6 +4,7 @@ import { withFormik, Field } from 'formik';
 
 type RenderProps = any;
 
+// const InnerForm: React.FC = ({
 const InnerForm: React.FunctionComponent<RenderProps> = ({
   values,
   errors,

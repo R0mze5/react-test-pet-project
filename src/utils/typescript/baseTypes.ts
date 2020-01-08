@@ -56,3 +56,6 @@ const css: Styles = {
   border: '1px solid black',
   fontSize: '13px',
 };
+
+// declare указывает, что у нас обязательно будет данная функция
+// declare var myVariable: (question: string) => boolean;

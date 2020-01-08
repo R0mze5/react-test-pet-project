@@ -92,6 +92,18 @@ export const HooksReducer: React.FunctionComponent<IHooksProps> = props => {
     fetchNotes();
   }, []);
 
+  // const inputValue = (): object => {
+  //   return {
+  //     type: 'text',
+  //     name: 'hooks',
+  //     value: todoTitle,
+  //     onChange: (e: React.ChangeEvent<HTMLInputElement>) => setTodoTitle(e.target.value),
+  //     onKeyPress: addTodo,
+  //   };
+  // };
+
+  // const input = inputValue();
+
   return (
     <Context.Provider
       value={{
@@ -105,6 +117,7 @@ export const HooksReducer: React.FunctionComponent<IHooksProps> = props => {
           value={todoTitle}
           onChange={e => setTodoTitle(e.target.value)}
           onKeyPress={addTodo}
+          // {...input}
         />
       </div>
       <div>

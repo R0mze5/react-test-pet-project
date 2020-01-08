@@ -2,15 +2,17 @@ import React, { PureComponent } from 'react';
 
 import Grid from '@material-ui/core/Grid';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter /* , useHistory */ } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
-// import * as immutable from '@utils/immutable';
 
 import { ThemeProvider, theme, GlobalStyles } from '@theme';
 
-import { Router } from '@router/';
+import { Router } from '@router';
 import { storeCreator } from '@store/';
+
+// import * as immutable from '@utils/immutable';
+import * as generic from '@utils/typescript/decorators';
+console.log(generic);
 
 const store = storeCreator();
 
@@ -41,6 +43,8 @@ export class App extends PureComponent {
   };
 
   render() {
+    // const history = useHistory();
+
     // basename - если мы делаем только один из разделов на сайте на реакт, например dashboard
     // forseRefresh={true} - все переходы будут перезагружать страницу
     return (
@@ -61,6 +65,9 @@ export class App extends PureComponent {
             <button type={'button'} onClick={this.throwPromiseError}>
               async error
             </button>
+            {/* <button type={'button'} onClick={() => history.push('/')}>
+              go home
+            </button> */}
           </Grid>
         </BrowserRouter>
       </Grid>

@@ -7,4 +7,5 @@ export {
   ForwardedRef,
   Hooks,
   HooksReducer,
+  HooksUseRef,
 } from './containers';

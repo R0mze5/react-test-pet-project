@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-// import { TodosItem } from './TodosItem';
+import { TodosItem } from './TodosItem';
 
 import { Context } from './context';
 
-interface IHooksProps {}
+// interface IHooksProps {
+//   onAdd(title?: string): void
+//   todos: any [] // any массив
+// }
 
-// const TodosItem = React.lazy(() => import('./TodosItem'));
-const TodosItem = React.lazy(
-  () =>
-    new Promise((resolve: any) => {
-      setTimeout(() => {
-        resolve(import('./TodosItem'));
-      }, 3000);
-    }),
-);
+// declare const handleClick: (event: React.MouseEvent<HTMLLIElement>) => void
 
-export const Hooks: React.FunctionComponent<IHooksProps> = props => {
+export const HooksUseRef: React.FC<{ onAdd(title?: string): void }> = () => {
+  // может принимать в себя функцию, у которой необязательное поле title
   type TId = string | number;
 
   interface ITodo {
@@ -25,16 +21,16 @@ export const Hooks: React.FunctionComponent<IHooksProps> = props => {
     completed: boolean;
   }
 
-  type TTodo = Array<ITodo>;
+  // type TTodo = Array<ITodo>;
 
-  const [todos, setTodos] = useState<TTodo>([]);
+  const ref = useRef<HTMLInputElement>(null);
 
-  const [todoTitle, setTodoTitle] = useState<string>('');
+  const [todos, setTodos] = useState<ITodo[]>([]);
+  // const [todos, setTodos] = useState<TTodo>([]);
+  // const [todos, setTodos] = useState<Array<ITodo>>([]);
 
   useEffect(() => {
-    // console.log('init');
-    const lsTodos: any = localStorage.getItem('todos');
-    setTodos(JSON.parse(lsTodos) || []);
+    setTodos(JSON.parse(localStorage.getItem('todos') || '[]') as ITodo[]);
   }, []);
   // когда [], то получается эмуляция cdm
 
@@ -55,8 +51,14 @@ export const Hooks: React.FunctionComponent<IHooksProps> = props => {
 
   const addTodo = (event: React.KeyboardEvent): void => {
     if (event.key === 'Enter') {
-      setTodos([...todos, { id: Date.now(), title: todoTitle, completed: false }]);
-      setTodoTitle('');
+      const todo: ITodo = { id: Date.now(), title: ref.current!.value, completed: false };
+
+      setTodos([...todos, todo]);
+      ref.current!.value = '';
+
+      // ref.current!.clear()
+
+      // восклицательный знак указывает, что у нас будет всё хорошо
     }
   };
 
@@ -76,30 +78,18 @@ export const Hooks: React.FunctionComponent<IHooksProps> = props => {
     );
   };
 
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTodoTitle(event.target.value);
-  };
-
   return (
     <Context.Provider value={{ removeTodoItem, toggleTodo }}>
       <div>
-        <input
-          type="text"
-          name="hooks"
-          value={todoTitle}
-          onChange={changeHandler}
-          onKeyPress={addTodo}
-        />
+        <input type="text" name="hooks" ref={ref} onKeyPress={addTodo} />
         <div>
-          <React.Suspense fallback={<p>loading</p>}>
-            {todos.map(el => (
-              <TodosItem key={el.id} {...el}></TodosItem>
-            ))}
-          </React.Suspense>
+          {todos.map(el => (
+            <TodosItem key={el.id} {...el}></TodosItem>
+          ))}
         </div>
       </div>
     </Context.Provider>
   );
 };
 
-export default Hooks;
+export default HooksUseRef;
